@@ -12,10 +12,10 @@ enum TypePion
 
 typedef struct
 {
-  int numeroJoueur;
+  int numeroJoueur; // Numero du joueur possedant ce pion
   TypePion typePion;  // Represente le type de pion (singe, lion, dragon, aucun)
-  int x;
-  int y;
+  int x;  // Coordonne x du pion
+  int y;  // Coordonne y du pion
 }Pion;
 
 Pion construct_Pion(int numeroJoueur,TypePion typePion, int x, int y);

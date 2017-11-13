@@ -7,8 +7,8 @@
 typedef struct
 {
   int numero;  // Represente le numero de joueur
-  char * nom;
-  Pion * tab_p_pion[NB_PION];
+  char * nom; // Represente le nom du joueur
+  Pion * tab_p_pion[NB_PION]; // Represente les pions du joueur
 }Joueur;
 
 Joueur construct_Joueur(int numero, char * nom);
