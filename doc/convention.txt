@@ -1,0 +1,26 @@
+# Variable
+int maSuperVariable;
+
+# Tableau
+int t_tableau[];
+
+# Fonction
+void maSuperFonction;
+
+# Fonction en relation avec une struct precise
+void Plateau_maSuperFonctionQuiFaitDesTrucEnRelationAvecLePlateau;
+
+# Constructeur de struct
+Plateau construct_Plateau
+
+# Constante
+int c_maConstante;
+
+# Constante define
+MON_DEFINE
+
+# Pointeur
+int * p_monSuperPointeur;
+
+# Structure
+Jeu monSuperJeu;
