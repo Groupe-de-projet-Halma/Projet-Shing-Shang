@@ -1,8 +1,6 @@
 #ifndef PLATEAU_H
 #define PLATEAU_H
-#define TAILLE_PLATEAU_X 8
-#define TAILLE_PLATEAU_Y 10
-#define NB_CASE_SUPP 4
+#define TAILLE_PLATEAU 10
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,8 +10,7 @@
 
 typedef struct
 {
-  CasePlateau t_casesPlateau[TAILLE_PLATEAU_X][TAILLE_PLATEAU_Y]; // Case du plateau
-  CasePlateau t_casesPlateauSupp[NB_CASE_SUPP];
+  CasePlateau t_casesPlateau[TAILLE_PLATEAU][TAILLE_PLATEAU]; // Case du plateau
 }Plateau;
 
 Plateau construct_Plateau();  // Constructeur du plateau

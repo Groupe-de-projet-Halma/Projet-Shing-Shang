@@ -3,68 +3,59 @@
 Plateau construct_Plateau()
 {
   Plateau plateau;
-  for (int y = 0; y < TAILLE_PLATEAU_Y; y++)
+  // Creation des cases
+  for (int y = 0; y < TAILLE_PLATEAU; y++)
   {
-    for (int x = 0; x < TAILLE_PLATEAU_X; x++)
+    for (int x = 0; x < TAILLE_PLATEAU; x++)
     {
       plateau.t_casesPlateau[x][y] = construct_CasePlateau(x,y);
     }
   }
-  plateau.t_casesPlateauSupp[0] = construct_CasePlateau(-1,4);
-  plateau.t_casesPlateauSupp[1] = construct_CasePlateau(-1,5);
-  plateau.t_casesPlateauSupp[2] = construct_CasePlateau(TAILLE_PLATEAU_X,4);
-  plateau.t_casesPlateauSupp[3] = construct_CasePlateau(TAILLE_PLATEAU_X,5);
+
+  // Bloquages des cases interdites
+  for (int i = 0; i < 4; i++)
+  {
+    plateau.t_casesPlateau[0][i].typeDeCase = BLOQUE;
+    plateau.t_casesPlateau[TAILLE_PLATEAU-1][i].typeDeCase = BLOQUE;
+    plateau.t_casesPlateau[0][i+6].typeDeCase = BLOQUE;
+    plateau.t_casesPlateau[TAILLE_PLATEAU-1][i+6].typeDeCase = BLOQUE;
+  }
+
+  // Transformation des cases en porte
 
   return plateau;
 }
 
 void Plateau_afficher(Plateau plateau)
 {
-  for (int y = 0; y < TAILLE_PLATEAU_Y; y++)
+  printf("Y\\X");
+  for (int i = 0; i < TAILLE_PLATEAU; i++)
+    printf(" %d ",i);
+
+  printf("\n");
+
+  for (int j = 0; j < TAILLE_PLATEAU+1; j++)
+    printf(" - ");
+
+  printf("\n");
+  for (int y = 0; y < TAILLE_PLATEAU; y++)
   {
-    // Decalage ligne normal
-    if (y != 4 && y != 5)
-      printf("  ");
-
-    // Affichage case Supp
-    else if (y == 4)
-    {
-      if (plateau.t_casesPlateauSupp[0].p_pionCase == NULL)
-        printf("0 ");
-      else
-        printf("%d ",plateau.t_casesPlateauSupp[0].p_pionCase->typePion);
-    }
-    else if (y == 5)
-    {
-      if (plateau.t_casesPlateauSupp[1].p_pionCase == NULL)
-        printf("0 ");
-      else
-        printf("%d ",plateau.t_casesPlateauSupp[1].p_pionCase->typePion);
-    }
-
+    printf(" %d|",y);
     // Affichage case normal
-    for (int x = 0; x < TAILLE_PLATEAU_X; x++)
+    for (int x = 0; x < TAILLE_PLATEAU; x++)
     {
-      if (plateau.t_casesPlateau[x][y].p_pionCase == NULL)
-        printf("0 ");
-      else
-        printf("%d ", plateau.t_casesPlateau[x][y].p_pionCase->typePion);
-    }
+      if (plateau.t_casesPlateau[x][y].typeDeCase == BLOQUE)
+        printf("   ");
 
-    // Affichage case Supp
-    if (y == 4)
-    {
-      if (plateau.t_casesPlateauSupp[2].p_pionCase == NULL)
-        printf("0 ");
-      else
-        printf("%d ",plateau.t_casesPlateauSupp[2].p_pionCase->typePion);
-    }
-    else if (y == 5)
-    {
-      if (plateau.t_casesPlateauSupp[3].p_pionCase == NULL)
-        printf("0 ");
-      else
-        printf("%d ",plateau.t_casesPlateauSupp[3].p_pionCase->typePion);
+      else if (plateau.t_casesPlateau[x][y].typeDeCase == NORMAL)
+      {
+        if (plateau.t_casesPlateau[x][y].p_pionCase == NULL)
+          printf(" 0 ");
+        else
+          printf(" %d ", plateau.t_casesPlateau[x][y].p_pionCase->typePion);
+      }
+      else if (plateau.t_casesPlateau[x][y].typeDeCase == PORTE)
+        printf(" X ");
     }
     printf("\n");
   }
