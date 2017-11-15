@@ -8,6 +8,7 @@
 #include <case_plateau.h>
 #include <pion.h>
 #include <joueur.h>
+#include <deplacement.h>
 
 typedef struct
 {
@@ -18,5 +19,6 @@ Plateau construct_Plateau();  // Constructeur du plateau
 void Plateau_placerPionJoueur(Plateau * plateau,Pion * tab_p_pion[]); // Place les pions d'un joueur sur le plateau
 void Plateau_afficher(Plateau plateau); // Affiche le plateau de jeu
 
+int Plateau_testCoordSaut(Plateau plateau,TypePion typePion, int coordXCaseObstacle, int coordYCaseObstacle, int coordXCible, int coordYCible);
 void Plateau_rechercheDeplacement(Plateau plateau, Joueur * joueur, Pion pionSelectionner);
 #endif

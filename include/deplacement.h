@@ -15,4 +15,6 @@ typedef struct
   int tourSupplementaire;
 }Deplacement;
 
+Deplacement construct_Deplacement(CasePlateau * caseDestination,int estUnSaut);
+
 #endif
