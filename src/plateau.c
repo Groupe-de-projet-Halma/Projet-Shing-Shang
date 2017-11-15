@@ -20,10 +20,21 @@ Plateau construct_Plateau()
     plateau.t_casesPlateau[0][i+6].typeDeCase = BLOQUE;
     plateau.t_casesPlateau[TAILLE_PLATEAU-1][i+6].typeDeCase = BLOQUE;
   }
+  //4 5  1 TAILLE_PLATEAU-2
 
   // Transformation des cases en porte
+  plateau.t_casesPlateau[4][1].typeDeCase = PORTE_J1;
+  plateau.t_casesPlateau[5][1].typeDeCase = PORTE_J1;
+  plateau.t_casesPlateau[4][TAILLE_PLATEAU-2].typeDeCase = PORTE_J2;
+  plateau.t_casesPlateau[5][TAILLE_PLATEAU-2].typeDeCase = PORTE_J2;
 
   return plateau;
+}
+
+void Plateau_rechercheDeplacement(Plateau plateau, Joueur * joueur, Pion pionSelectionner)
+{
+
+
 }
 
 void Plateau_afficher(Plateau plateau)
@@ -54,8 +65,11 @@ void Plateau_afficher(Plateau plateau)
         else
           printf(" %d ", plateau.t_casesPlateau[x][y].p_pionCase->typePion);
       }
-      else if (plateau.t_casesPlateau[x][y].typeDeCase == PORTE)
+      else if (plateau.t_casesPlateau[x][y].typeDeCase == PORTE_J1)
         printf(" X ");
+      else if (plateau.t_casesPlateau[x][y].typeDeCase == PORTE_J2)
+        printf(" X ");
+
     }
     printf("\n");
   }

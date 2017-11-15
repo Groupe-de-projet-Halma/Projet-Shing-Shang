@@ -9,7 +9,7 @@
 typedef enum TypeCase TypeCase;
 enum TypeCase
 {
-    BLOQUE, NORMAL, PORTE
+    BLOQUE, NORMAL, PORTE_J1, PORTE_J2
 };
 
 typedef struct
