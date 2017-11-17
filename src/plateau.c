@@ -106,6 +106,12 @@ void Plateau_rechercheDeplacement(Plateau plateau, Joueur * joueur, Pion pionSel
           // On ajoute une solution de deplacement à la liste
           nbDeplacement++;
           Deplacement deplacement = construct_Deplacement(&plateau.t_casesPlateau[coordXCible][coordYCible],1);
+
+          // Si on saute par dessus un pion adverse
+          if (plateau.t_casesPlateau[coordXCaseObstacle][coordYCaseObstacle].p_pionCase->numeroJoueur != joueur->numero)
+          {
+            deplacement.pionEliminer = plateau.t_casesPlateau[coordXCaseObstacle][coordYCaseObstacle].p_pionCase;
+          }
           l_deplacement = realloc(l_deplacement,sizeof(Deplacement) * nbDeplacement);
           l_deplacement[nbDeplacement-1] = deplacement;
         }
