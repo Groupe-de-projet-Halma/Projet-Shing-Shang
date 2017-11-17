@@ -73,9 +73,12 @@ void Plateau_rechercheDeplacement(Plateau plateau, Joueur * joueur, Pion pionSel
 {
   int coordXCaseObstacle;
   int coordYCaseObstacle;
+
   int coordXCible;
   int coordYCible;
+
   int nbDeplacement = 0;
+
   Deplacement * l_deplacement = malloc(sizeof(Deplacement) * nbDeplacement);
 
   // Recherche destination en sautant
@@ -85,9 +88,11 @@ void Plateau_rechercheDeplacement(Plateau plateau, Joueur * joueur, Pion pionSel
     {
       if (x != 0 && y!= 0)
       {
+        // Calcul des coordonne de l'obstacle
         coordXCaseObstacle = pionSelectionner.x + x;
         coordYCaseObstacle = pionSelectionner.y + y;
 
+        // Calcul des coordonne de la case cible
         if (x < 0)
           coordXCible = pionSelectionner.x + x - 1;
         else if (x > 0)
@@ -103,8 +108,7 @@ void Plateau_rechercheDeplacement(Plateau plateau, Joueur * joueur, Pion pionSel
                                   coordXCaseObstacle,coordYCaseObstacle,
                                   coordXCible, coordYCible))
         {
-          // On ajoute une solution de deplacement à la liste
-          nbDeplacement++;
+          // On cree une un deplacement vers la case cible
           Deplacement deplacement = construct_Deplacement(&plateau.t_casesPlateau[coordXCible][coordYCible],1);
 
           // Si on saute par dessus un pion adverse
@@ -112,6 +116,9 @@ void Plateau_rechercheDeplacement(Plateau plateau, Joueur * joueur, Pion pionSel
           {
             deplacement.pionEliminer = plateau.t_casesPlateau[coordXCaseObstacle][coordYCaseObstacle].p_pionCase;
           }
+
+          // On ajoute le deplacement à la liste des deplacement possible
+          nbDeplacement++;
           l_deplacement = realloc(l_deplacement,sizeof(Deplacement) * nbDeplacement);
           l_deplacement[nbDeplacement-1] = deplacement;
         }
@@ -122,6 +129,10 @@ void Plateau_rechercheDeplacement(Plateau plateau, Joueur * joueur, Pion pionSel
 
 void Plateau_afficher(Plateau plateau)
 {
+  //Test affichage d'un pion
+  //Pion monPion = construct_Pion(1,DRAGON, 1, 0);
+  //plateau.t_casesPlateau[1][0].p_pionCase = &monPion;
+
   printf("Y\\X");
   for (int i = 0; i < TAILLE_PLATEAU; i++)
     printf(" %d ",i);
