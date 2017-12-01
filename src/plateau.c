@@ -30,6 +30,13 @@ Plateau construct_Plateau()
   return plateau;
 }
 
+// Plateau_placerPionJoueur
+
+Pion * Plateau_selectionnerPion(Plateau plateau,int x,int y)
+{
+  return plateau.t_casesPlateau[x][y].p_pionCase;
+}
+
 int Plateau_testRegleSaut(Plateau plateau,TypePion typePion, int coordXCaseObstacle, int coordYCaseObstacle, int coordXCible, int coordYCible)
 {
   // Teste si les cases sont hors plateau

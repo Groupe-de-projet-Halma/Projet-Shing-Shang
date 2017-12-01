@@ -8,15 +8,18 @@
 #include <plateau.h>
 #include <joueur.h>
 
-typedef struct 
+typedef struct
 {
   Plateau plateau;
   Joueur joueur1;
   Joueur joueur2;
+  Joueur * joueurActuel;
+  Pion * p_pionSelectionner;
 }ShingShang;
 
+ShingShang construct_ShingShang();
 int run();
-ShingShang ShingShang_nouvellePartie();
+void ShingShang_nouvellePartie(ShingShang * shingShang);
 ShingShang ShingShang_chargerPartie();
 void ShingShang_sauvegarderPartie(ShingShang partie);
 

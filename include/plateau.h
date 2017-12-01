@@ -16,7 +16,8 @@ typedef struct
 }Plateau;
 
 Plateau construct_Plateau();  // Constructeur du plateau
-void Plateau_placerPionJoueur(Plateau * plateau,Pion * tab_p_pion[]); // Place les pions d'un joueur sur le plateau
+void Plateau_placerPionJoueur(Plateau * plateau,Joueur joueur); // Place les pions d'un joueur sur le plateau
+Pion * Plateau_selectionnerPion(Plateau plateau,int x,int y); // Selectionne un pion sur le plateau
 void Plateau_afficher(Plateau plateau); // Affiche le plateau de jeu
 
 int Plateau_testCoordSaut(Plateau plateau,TypePion typePion, int coordXCaseObstacle, int coordYCaseObstacle, int coordXCible, int coordYCible);
