@@ -17,16 +17,13 @@ void ShingShang_nouvellePartie(ShingShang * shingShang)
   printf("Entrez le nom du joueur 1: ");
   scanf("%s",shingShang->joueur1.nom);
   vider_buffer();
-  Joueur_creerPion(&shingShang->joueur1);
+  Plateau_creerPion(&shingShang->plateau, &shingShang->joueur1);
 
   printf("Entrez le nom du joueur 2: ");
   scanf("%s",shingShang->joueur2.nom);
   vider_buffer();
-  Joueur_creerPion(&shingShang->joueur2);
+  Plateau_creerPion(&shingShang->plateau, &shingShang->joueur2);
 
-  //Plateau_placerPionJoueur(&plateau,joueur1);
-  //Plateau_placerPionJoueur(&plateau,joueur2);
-  
   printf("%s VS %s\n",shingShang->joueur1.nom,shingShang->joueur2.nom );
 }
 

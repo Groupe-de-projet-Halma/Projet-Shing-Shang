@@ -12,6 +12,5 @@ typedef struct
 }Joueur;
 
 Joueur construct_Joueur(int numero);
-void Joueur_creerPion(Joueur * joueur);
 
 #endif

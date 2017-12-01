@@ -18,7 +18,7 @@ typedef struct
   int y;  // Coordonnee en ordonnee de la case sur le plateau
   Pion * p_pionCase;  // Pointeur vers le pion sur la case (NULL si aucun)
   TypeCase typeDeCase; // Indique si la case est une base ou non
-}CasePlateau;
+} CasePlateau;
 
 CasePlateau construct_CasePlateau(int x, int y); // Constructeur de CasePlateau
 

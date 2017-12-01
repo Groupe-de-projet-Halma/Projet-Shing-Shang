@@ -30,7 +30,102 @@ Plateau construct_Plateau()
   return plateau;
 }
 
-// Plateau_placerPionJoueur
+
+void Plateau_creerPion(Plateau * plateau, Joueur * joueur)
+{
+  int num_case_pion = 0;
+  int abscisseMIN;
+	int abscisseMAX;
+	int ordonneeMIN;
+	int ordonneeMax;
+	int valeurPionInitial;
+	int valeurPion;
+
+  if (joueur->numero == 1)
+  {
+    abscisseMIN = 1;
+  	abscisseMAX = 4;
+  	ordonneeMIN = 0;
+  	ordonneeMax = 3;
+  	valeurPionInitial = DRAGON;
+
+  	for(int y = ordonneeMIN; y < ordonneeMax; y++)
+  	{
+  		valeurPion = valeurPionInitial;
+  		for(int x = abscisseMIN; x < abscisseMAX; x++)
+  		{
+        joueur->tab_p_pion[num_case_pion] = construct_Pion(joueur->numero, valeurPion, x, y);
+        plateau->t_casesPlateau[x][y].p_pionCase = &joueur->tab_p_pion[num_case_pion];
+  			valeurPion--;
+        num_case_pion++;
+  		}
+  		abscisseMAX--;
+  		valeurPionInitial--;
+  	}
+
+    abscisseMIN = 6;
+  	abscisseMAX = 9;
+  	ordonneeMIN = 0;
+    ordonneeMax = 3;
+    valeurPionInitial = SINGE;
+
+    for(int y = ordonneeMIN; y < ordonneeMax; y++)
+    {
+      valeurPion = SINGE;
+      for(int x = abscisseMIN; x < abscisseMAX; x++)
+      {
+        joueur->tab_p_pion[num_case_pion] = construct_Pion(joueur->numero, valeurPion, x, y);
+        plateau->t_casesPlateau[x][y].p_pionCase = &joueur->tab_p_pion[num_case_pion];
+        valeurPion++;
+        num_case_pion++;
+      }
+      abscisseMIN++;
+    }
+  }
+
+  else if (joueur->numero == 2)
+  {
+    abscisseMIN = 1;
+    abscisseMAX = 2;
+    ordonneeMIN = 7;
+    ordonneeMax = 10;
+    valeurPionInitial = SINGE;
+
+    for(int y = ordonneeMIN; y < ordonneeMax; y++)
+    {
+      valeurPion = valeurPionInitial;
+      for(int x = abscisseMIN; x < abscisseMAX; x++)
+      {
+        joueur->tab_p_pion[num_case_pion] = construct_Pion(joueur->numero, valeurPion, x, y);
+        plateau->t_casesPlateau[x][y].p_pionCase = &joueur->tab_p_pion[num_case_pion];
+        valeurPion--;
+        num_case_pion++;
+      }
+      valeurPionInitial++;
+      abscisseMAX++;
+    }
+
+	  abscisseMIN = 8;
+    abscisseMAX = 9;
+    ordonneeMIN = 7;
+    ordonneeMax = 10;
+    valeurPionInitial = SINGE;
+
+    for(int y = ordonneeMIN; y < ordonneeMax; y++)
+    {
+      valeurPion = SINGE;
+      for(int x = abscisseMIN; x < abscisseMAX; x++)
+      {
+        joueur->tab_p_pion[num_case_pion] = construct_Pion(joueur->numero, valeurPion, x, y);
+        plateau->t_casesPlateau[x][y].p_pionCase = &joueur->tab_p_pion[num_case_pion];
+        valeurPion++;
+        num_case_pion++;
+      }
+      valeurPionInitial++;
+      abscisseMIN--;
+    }
+  }
+}
 
 Pion * Plateau_selectionnerPion(Plateau plateau,int x,int y)
 {
@@ -136,10 +231,6 @@ void Plateau_rechercheDeplacement(Plateau plateau, Joueur * joueur, Pion pionSel
 
 void Plateau_afficher(Plateau plateau)
 {
-  //Test affichage d'un pion
-  //Pion monPion = construct_Pion(1,DRAGON, 1, 0);
-  //plateau.t_casesPlateau[1][0].p_pionCase = &monPion;
-
   printf("Y\\X");
   for (int i = 0; i < TAILLE_PLATEAU; i++)
     printf(" %d ",i);

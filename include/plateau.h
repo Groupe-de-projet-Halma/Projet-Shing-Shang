@@ -20,6 +20,8 @@ void Plateau_placerPionJoueur(Plateau * plateau,Joueur joueur); // Place les pio
 Pion * Plateau_selectionnerPion(Plateau plateau,int x,int y); // Selectionne un pion sur le plateau
 void Plateau_afficher(Plateau plateau); // Affiche le plateau de jeu
 
+void Plateau_creerPion(Plateau * plateau, Joueur * joueur);
+
 int Plateau_testCoordSaut(Plateau plateau,TypePion typePion, int coordXCaseObstacle, int coordYCaseObstacle, int coordXCible, int coordYCible);
 void Plateau_rechercheDeplacement(Plateau plateau, Joueur * joueur, Pion pionSelectionner);
 #endif
