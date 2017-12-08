@@ -127,10 +127,7 @@ void Plateau_creerPion(Plateau * plateau, Joueur * joueur)
   }
 }
 
-Pion * Plateau_selectionnerPion(Plateau plateau,int x,int y)
-{
-  return plateau.t_casesPlateau[x][y].p_pionCase;
-}
+
 
 int Plateau_testRegleSaut(Plateau plateau,TypePion typePion, int coordXCaseObstacle, int coordYCaseObstacle, int coordXCible, int coordYCible)
 {

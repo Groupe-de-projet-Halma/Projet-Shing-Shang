@@ -13,7 +13,7 @@ typedef struct
   Plateau plateau;
   Joueur joueur1;
   Joueur joueur2;
-  Joueur * joueurActuel;
+  int joueurActuel;
   Pion * p_pionSelectionner;
 }ShingShang;
 

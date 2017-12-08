@@ -9,3 +9,10 @@ Pion construct_Pion(int numeroJoueur,TypePion typePion, int x, int y)
   pion.y = y;
   return pion;
 }
+
+void Pion_affichage(Pion pion)
+{
+  printf("Appartient au joueur: %d\n",pion.numeroJoueur );
+  printf("Type: %d\n",pion.typePion );
+  printf("Coordonnee: [%d;%d]\n",pion.x,pion.y );
+}

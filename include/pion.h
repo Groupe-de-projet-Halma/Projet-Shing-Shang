@@ -19,5 +19,6 @@ typedef struct
 }Pion;
 
 Pion construct_Pion(int numeroJoueur,TypePion typePion, int x, int y);
+void Pion_affichage(Pion pion);
 
 #endif
