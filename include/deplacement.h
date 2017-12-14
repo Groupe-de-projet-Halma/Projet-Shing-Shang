@@ -15,6 +15,7 @@ typedef struct
   int tourSupplementaire;
 }Deplacement;
 
-Deplacement construct_Deplacement(CasePlateau * caseDestination,int estUnSaut);
+Deplacement construct_Deplacement(CasePlateau * caseDestination,int estUnSaut,Pion * pionEliminer,int tourSupplementaire);
+void Deplacement_affichage(Deplacement deplacement);
 
 #endif
