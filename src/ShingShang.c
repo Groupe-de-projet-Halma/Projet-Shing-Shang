@@ -24,7 +24,7 @@ void ShingShang_nouvellePartie(ShingShang * shingShang)
   vider_buffer();
   Plateau_creerPion(&shingShang->plateau, &shingShang->joueur2);
 
-  printf("%s VS %s\n",shingShang->joueur1.nom,shingShang->joueur2.nom );
+  printf("\n%s VS %s\n\n",shingShang->joueur1.nom,shingShang->joueur2.nom );
 }
 
 Pion * ShingShang_selectionnerPion(ShingShang shingShang)
