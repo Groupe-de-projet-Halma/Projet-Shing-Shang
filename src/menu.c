@@ -163,7 +163,7 @@ void credits(){
   couleur("31");
   printf("\n====== Crédits ======\n\n");
   couleur("37");
-  printf("Jeu réalisé par Alexis HESLOUIN et Tancelin MAZZOTI\n");
+  printf("Jeu réalisé par Alexis HESLOUIN et Tancelin MAZZOTTI\n");
   printf("Etudiants en DUT Informatique de l'université de Caen Normandie\n\n");
   printf("Taper 1 pour revenir au menu : ");
   do {
