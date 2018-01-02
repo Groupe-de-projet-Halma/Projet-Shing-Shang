@@ -236,7 +236,7 @@ int Plateau_testRegleSaut(Plateau plateau,TypePion typePion, int coordXCaseObsta
   return valide;
 }
 
-void Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelectionner)
+ListDeplacement Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelectionner)
 {
   int coordXCaseObstacle;
   int coordYCaseObstacle;
@@ -244,9 +244,7 @@ void Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelectionner)
   int coordXCible;
   int coordYCible;
 
-  int nbDeplacement = 0;
-
-  Deplacement * l_deplacement = malloc(sizeof(Deplacement) * nbDeplacement);
+  ListDeplacement listDeplacement = construct_ListDeplacement();
 
   // Recherche destination en sautant
   for (int y = -1; y <= 1; y++)
@@ -289,9 +287,7 @@ void Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelectionner)
           }
 
           // On ajoute le deplacement à la liste des deplacement possible
-          nbDeplacement++;
-          l_deplacement = realloc(l_deplacement,sizeof(Deplacement) * nbDeplacement);
-          l_deplacement[nbDeplacement-1] = deplacement;
+          ListDeplacement_ajouterDeplacement(&listDeplacement,deplacement);
         }
 
         // Test les regles deplacement double SINGE
@@ -304,9 +300,7 @@ void Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelectionner)
           Deplacement deplacement = construct_Deplacement(&plateau.t_casesPlateau[coordXCible][coordYCible],0,NULL,0);
 
           // On ajoute le deplacement à la liste des deplacement possible
-          nbDeplacement++;
-          l_deplacement = realloc(l_deplacement,sizeof(Deplacement) * nbDeplacement);
-          l_deplacement[nbDeplacement-1] = deplacement;
+          ListDeplacement_ajouterDeplacement(&listDeplacement,deplacement);
         }
 
         // Test les regles deplacement simple si different de DRAGON
@@ -320,16 +314,14 @@ void Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelectionner)
           Deplacement deplacement = construct_Deplacement(&plateau.t_casesPlateau[coordXCible][coordYCible],0,NULL,0);
 
           // On ajoute le deplacement à la liste des deplacement possible
-          nbDeplacement++;
-          l_deplacement = realloc(l_deplacement,sizeof(Deplacement) * nbDeplacement);
-          l_deplacement[nbDeplacement-1] = deplacement;
+          ListDeplacement_ajouterDeplacement(&listDeplacement,deplacement);
         }
       }
     }
   }
   // Affichage deplacement
-  for (int i = 0; i < nbDeplacement; i++)
-  {
-    Deplacement_affichage(l_deplacement[i]);
+  for (int i = 0; i < listDeplacement.tailleListe; i++) {
+    Deplacement_affichage(ListDeplacement_getIndexDeplacement(listDeplacement,i));
   }
+  return listDeplacement;
 }

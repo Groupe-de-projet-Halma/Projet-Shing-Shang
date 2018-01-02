@@ -15,7 +15,17 @@ typedef struct
   int tourSupplementaire;
 }Deplacement;
 
+typedef struct
+{
+  Deplacement * p_Deplacement;
+  int tailleListe;
+}ListDeplacement;
+
 Deplacement construct_Deplacement(CasePlateau * caseDestination,int estUnSaut,Pion * pionEliminer,int tourSupplementaire);
 void Deplacement_affichage(Deplacement deplacement);
+
+ListDeplacement construct_ListDeplacement();
+void ListDeplacement_ajouterDeplacement(ListDeplacement * listDeplacement, Deplacement deplacement);
+Deplacement ListDeplacement_getIndexDeplacement(ListDeplacement listDeplacement, int i);
 
 #endif

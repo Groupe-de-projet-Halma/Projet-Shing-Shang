@@ -24,5 +24,5 @@ int Plateau_testRegleDeplacementSimple(Plateau plateau,TypePion typePion, int co
 int Plateau_testRegleDeplacementDouble(Plateau plateau,TypePion typePion, int coordXCaseObstacle, int coordYCaseObstacle, int coordXCible, int coordYCible);
 int Plateau_testRegleSaut(Plateau plateau,TypePion typePion, int coordXCaseObstacle, int coordYCaseObstacle, int coordXCible, int coordYCible);
 
-void Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelectionner);
+ListDeplacement Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelectionner);
 #endif

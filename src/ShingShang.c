@@ -83,7 +83,8 @@ int run()
   pion = ShingShang_selectionnerPion(shingShang);
   printf("Pion selectionne:\n");
   Pion_affichage(*pion);
-  Plateau_rechercheDeplacement(shingShang.plateau,*pion);
+
+  ListDeplacement listDeplacement = Plateau_rechercheDeplacement(shingShang.plateau,*pion);
 
   return 0;
 }
