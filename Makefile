@@ -4,7 +4,7 @@
 .SUFFIXES:
 
 # Creation executable
-all: main.o ShingShang.o utilitaire.o plateau.o case_plateau.o pion.o joueur.o deplacement.o
+all: main.o ShingShang.o utilitaire.o plateau.o case_plateau.o pion.o joueur.o deplacement.o menu.o
 	gcc bin/*.o -o bin/Shing-Shang -Wall
 #	gcc bin/main.o bin/ShingShang.o bin/utilitaire.o bin/plateau.o bin/case_plateau.o bin/pion.o bin/joueur.o bin/deplacement.o -o bin/Shing-Shang
 
@@ -32,6 +32,9 @@ joueur.o: src/joueur.c include/joueur.h
 
 deplacement.o: src/deplacement.c include/deplacement.h
 	gcc -I include/ -c src/deplacement.c -o bin/deplacement.o -Wall
+
+menu.o: src/menu.c include/menu.h
+	gcc -I include/ -c src/menu.c -o bin/menu.o -Wall
 
 # Regles de nettoyages
 clean:

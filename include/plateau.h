@@ -9,6 +9,7 @@
 #include <pion.h>
 #include <joueur.h>
 #include <deplacement.h>
+#include <utilitaire.h>
 
 typedef struct
 {

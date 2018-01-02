@@ -2,6 +2,7 @@
 
 Plateau construct_Plateau()
 {
+  clear_console();
   Plateau plateau;
   // Creation des cases
   for (int y = 0; y < TAILLE_PLATEAU; y++)
@@ -324,4 +325,42 @@ ListDeplacement Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelection
     Deplacement_affichage(ListDeplacement_getIndexDeplacement(listDeplacement,i));
   }
   return listDeplacement;
+}
+
+/*test si le joueur a encore des dragons*/
+int test_dragon(Joueur * joueur)
+{
+  int wyrm = 0;
+    for (int i = 0; i < 13; i++)
+    {
+      if (joueur->tab_p_pion[i].typePion == DRAGON)
+      {
+        wyrm += 1;
+      }
+    }
+  return wyrm;
+}
+
+/*Conditions de victoire*/
+void victoire(Joueur * joueur, Plateau * plateau ){
+  if(test_dragon( joueur) == 0){
+    //le joueur adverse gagne
+  }else{
+    if(joueur->numero == 1){
+      if(plateau->t_casesPlateau[4][TAILLE_PLATEAU-2].p_pionCase->typePion == DRAGON && plateau->t_casesPlateau[4][TAILLE_PLATEAU-2].p_pionCase->numeroJoueur == joueur -> numero){
+        //victoire j1
+      }
+      if(plateau->t_casesPlateau[5][TAILLE_PLATEAU-2].p_pionCase->typePion == DRAGON && plateau->t_casesPlateau[5][TAILLE_PLATEAU-2].p_pionCase->numeroJoueur == joueur -> numero){
+        //victoire j1
+      }
+
+    }else {
+      if(plateau->t_casesPlateau[4][1].p_pionCase->typePion == DRAGON && plateau->t_casesPlateau[4][1].p_pionCase->numeroJoueur == joueur -> numero) {
+        //victoire j2
+      }
+      if(plateau->t_casesPlateau[5][1].p_pionCase->typePion == DRAGON && plateau->t_casesPlateau[5][1].p_pionCase->numeroJoueur == joueur -> numero){
+      //victoire j2
+      }
+    }
+  }
 }
