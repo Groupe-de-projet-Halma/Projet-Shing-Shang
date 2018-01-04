@@ -33,6 +33,7 @@ Pion * ShingShang_selectionnerPion(ShingShang shingShang)
   int y;
   int selection_valide = 0;
   Pion * pionSelectionner = NULL;
+  printf("*** Choix du pion ***\n");
 
   while (selection_valide == 0)
   {
@@ -66,6 +67,7 @@ Pion * ShingShang_selectionnerPion(ShingShang shingShang)
   return pionSelectionner;
 }
 
+<<<<<<< HEAD
 
 
 void message_victoire(ShingShang * shingShang, int vainqueur){
@@ -87,6 +89,29 @@ void message_victoire(ShingShang * shingShang, int vainqueur){
   if(choix == 1){
     menu();
   }
+=======
+Deplacement * ShingShang_selectionnerDeplacement(ListDeplacement listDeplacement)
+{
+  int x;
+  int y;
+  Deplacement * deplacementSelectionner = NULL;
+  printf("*** Choix de la destination ***\n");
+
+  printf("Entrez la coordonnee X: ");
+  scanf("%d", &x);
+
+  printf("Entrez la coordonnee Y: ");
+  scanf("%d", &y);
+
+  for (int  i = 0; i < listDeplacement.tailleListe; i++)
+  {
+    if (listDeplacement.p_Deplacement[i].caseDestination->x == x && listDeplacement.p_Deplacement[i].caseDestination->y == y)
+    {
+      deplacementSelectionner = &listDeplacement.p_Deplacement[i];
+    }
+  }
+  return deplacementSelectionner;
+>>>>>>> dc04e3fc4d5fca2d83596d53177f86a9cfe22446
 }
 
 int run()
@@ -102,12 +127,33 @@ int run()
   ShingShang_nouvellePartie(&shingShang);
   Plateau_afficher(shingShang.plateau);
 
-  Pion * pion;
-  pion = ShingShang_selectionnerPion(shingShang);
-  printf("Pion selectionne:\n");
-  Pion_affichage(*pion);
+  Pion * pion = NULL;
+  Deplacement * deplacement = NULL;
+  ListDeplacement listDeplacement = construct_ListDeplacement();
 
+  pion = ShingShang_selectionnerPion(shingShang);
+
+<<<<<<< HEAD
   ListDeplacement listDeplacement = Plateau_rechercheDeplacement(shingShang.plateau,*pion);
 
+=======
+  Plateau_rechercheDeplacement(shingShang.plateau,*pion,&listDeplacement);
+  /*printf("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
+  for (int i = 0; i < listDeplacement.tailleListe; i++) {
+    Deplacement_affichage(ListDeplacement_getIndexDeplacement(listDeplacement,i));
+  }*/
+  Plateau_afficher(shingShang.plateau);
+  deplacement = ShingShang_selectionnerDeplacement(listDeplacement);
+  if (deplacement != NULL)
+  {
+    //Deplacement_affichage(*deplacement);
+    if (shingShang.joueurActuel == 1)
+      Plateau_deplacerPion(&shingShang.plateau,pion,*deplacement,&shingShang.joueur2);
+    else
+      Plateau_deplacerPion(&shingShang.plateau,pion,*deplacement,&shingShang.joueur2);
+      
+    Plateau_afficher(shingShang.plateau);
+  }
+>>>>>>> dc04e3fc4d5fca2d83596d53177f86a9cfe22446
   return 0;
 }

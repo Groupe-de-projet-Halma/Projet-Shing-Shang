@@ -265,15 +265,13 @@ int Plateau_testRegleSaut(Plateau plateau,TypePion typePion, int coordXCaseObsta
   return valide;
 }
 
-ListDeplacement Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelectionner)
+void Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelectionner,ListDeplacement * listDeplacement)
 {
   int coordXCaseObstacle;
   int coordYCaseObstacle;
 
   int coordXCible;
   int coordYCible;
-
-  ListDeplacement listDeplacement = construct_ListDeplacement();
 
   // Recherche destination en sautant
   for (int y = -1; y <= 1; y++)
@@ -316,7 +314,7 @@ ListDeplacement Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelection
           }
 
           // On ajoute le deplacement à la liste des deplacement possible
-          ListDeplacement_ajouterDeplacement(&listDeplacement,deplacement);
+          ListDeplacement_ajouterDeplacement(listDeplacement,deplacement);
         }
 
         // Test les regles deplacement double SINGE
@@ -329,7 +327,7 @@ ListDeplacement Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelection
           Deplacement deplacement = construct_Deplacement(&plateau.t_casesPlateau[coordXCible][coordYCible],0,NULL,0);
 
           // On ajoute le deplacement à la liste des deplacement possible
-          ListDeplacement_ajouterDeplacement(&listDeplacement,deplacement);
+          ListDeplacement_ajouterDeplacement(listDeplacement,deplacement);
         }
 
         // Test les regles deplacement simple si different de DRAGON
@@ -343,16 +341,15 @@ ListDeplacement Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelection
           Deplacement deplacement = construct_Deplacement(&plateau.t_casesPlateau[coordXCible][coordYCible],0,NULL,0);
 
           // On ajoute le deplacement à la liste des deplacement possible
-          ListDeplacement_ajouterDeplacement(&listDeplacement,deplacement);
+          ListDeplacement_ajouterDeplacement(listDeplacement,deplacement);
         }
       }
     }
   }
-  // Affichage deplacement
-  for (int i = 0; i < listDeplacement.tailleListe; i++) {
-    Deplacement_affichage(ListDeplacement_getIndexDeplacement(listDeplacement,i));
-  }
-  return listDeplacement;
+  // Affichage deplacement possible
+  /*for (int i = 0; i < listDeplacement->tailleListe; i++) {
+    Deplacement_affichage(ListDeplacement_getIndexDeplacement(*listDeplacement,i));
+  }*/
 }
 
 void Plateau_deplacerPion(Plateau * plateau, Pion * pion, Deplacement deplacement, Joueur * joueurAdverse)
