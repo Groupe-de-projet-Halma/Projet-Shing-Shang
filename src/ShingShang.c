@@ -67,9 +67,6 @@ Pion * ShingShang_selectionnerPion(ShingShang shingShang)
   return pionSelectionner;
 }
 
-<<<<<<< HEAD
-
-
 void message_victoire(ShingShang * shingShang, int vainqueur){
   clear_console();
   int choix;
@@ -89,7 +86,8 @@ void message_victoire(ShingShang * shingShang, int vainqueur){
   if(choix == 1){
     menu();
   }
-=======
+}
+
 Deplacement * ShingShang_selectionnerDeplacement(ListDeplacement listDeplacement)
 {
   int x;
@@ -111,7 +109,6 @@ Deplacement * ShingShang_selectionnerDeplacement(ListDeplacement listDeplacement
     }
   }
   return deplacementSelectionner;
->>>>>>> dc04e3fc4d5fca2d83596d53177f86a9cfe22446
 }
 
 int run()
@@ -133,10 +130,6 @@ int run()
 
   pion = ShingShang_selectionnerPion(shingShang);
 
-<<<<<<< HEAD
-  ListDeplacement listDeplacement = Plateau_rechercheDeplacement(shingShang.plateau,*pion);
-
-=======
   Plateau_rechercheDeplacement(shingShang.plateau,*pion,&listDeplacement);
   /*printf("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
   for (int i = 0; i < listDeplacement.tailleListe; i++) {
@@ -151,9 +144,9 @@ int run()
       Plateau_deplacerPion(&shingShang.plateau,pion,*deplacement,&shingShang.joueur2);
     else
       Plateau_deplacerPion(&shingShang.plateau,pion,*deplacement,&shingShang.joueur2);
-      
+
     Plateau_afficher(shingShang.plateau);
   }
->>>>>>> dc04e3fc4d5fca2d83596d53177f86a9cfe22446
+
   return 0;
 }

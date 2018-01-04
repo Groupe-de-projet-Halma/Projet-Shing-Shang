@@ -43,7 +43,7 @@ void menu(){
     nouvellePartie();
   }
   if(choix == 2){
-    chargerPartie();
+    //chargerPartie();
   }
   if(choix == 3){
     regles1();
