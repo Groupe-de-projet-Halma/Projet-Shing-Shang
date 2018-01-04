@@ -60,15 +60,15 @@ void Plateau_afficher(Plateau plateau)
         if (plateau.t_casesPlateau[x][y].p_pionCase == NULL)
           printf(" 0 ");
         else {
-      //    if(){
-            couleur("34");
+          if(plateau.t_casesPlateau[x][y].p_pionCase->numeroJoueur == 1){
+            couleur("36");
             if(plateau.t_casesPlateau[x][y].p_pionCase->typePion == 3)
               printf(" D ");
             else if(plateau.t_casesPlateau[x][y].p_pionCase->typePion == 2)
               printf(" L ");
             else if(plateau.t_casesPlateau[x][y].p_pionCase->typePion == 1)
               printf(" S ");
-      /*    }else if(shingShang.joueur1->numero == 2){
+         }else if(plateau.t_casesPlateau[x][y].p_pionCase->numeroJoueur == 2){
             couleur("31");
             if(plateau.t_casesPlateau[x][y].p_pionCase->typePion == 3)
               printf(" D ");
@@ -76,17 +76,20 @@ void Plateau_afficher(Plateau plateau)
               printf(" L ");
             else if(plateau.t_casesPlateau[x][y].p_pionCase->typePion == 1)
               printf(" S ");
-
-          }*/
+          }
           couleur("0");
         }
       }
 
-      else if (plateau.t_casesPlateau[x][y].typeDeCase == PORTE_J1)
+      else if (plateau.t_casesPlateau[x][y].typeDeCase == PORTE_J1){
+        couleur("32");
         printf(" X ");
-      else if (plateau.t_casesPlateau[x][y].typeDeCase == PORTE_J2)
+        couleur("0");
+      }else if (plateau.t_casesPlateau[x][y].typeDeCase == PORTE_J2){
+        couleur("33");
         printf(" X ");
-
+        couleur("0");
+      }
     }
     printf("\n");
   }

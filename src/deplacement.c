@@ -13,7 +13,7 @@ Deplacement construct_Deplacement(CasePlateau * caseDestination,int estUnSaut,Pi
 
 void Deplacement_affichage(Deplacement deplacement)
 {
-  printf("##### DEPLACEMENT #####\n");
+  printf("\n##### DEPLACEMENT #####\n");
   printf("Case destination: [%d;%d]\n",deplacement.caseDestination->x,deplacement.caseDestination->y);
   printf("Est un saut: %d\n",deplacement.estUnSaut);
   if (deplacement.pionEliminer != NULL)

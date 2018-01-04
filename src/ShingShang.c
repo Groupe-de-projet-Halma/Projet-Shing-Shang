@@ -85,6 +85,9 @@ int run()
   Pion_affichage(*pion);
 
   ListDeplacement listDeplacement = Plateau_rechercheDeplacement(shingShang.plateau,*pion);
-
+  printf("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
+  for (int i = 0; i < listDeplacement.tailleListe; i++) {
+    Deplacement_affichage(ListDeplacement_getIndexDeplacement(listDeplacement,i));
+  }
   return 0;
 }
