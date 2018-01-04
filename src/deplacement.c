@@ -31,7 +31,7 @@ void Deplacement_affichage(Deplacement deplacement)
 ListDeplacement construct_ListDeplacement()
 {
   ListDeplacement listDeplacement;
-  listDeplacement.p_Deplacement = calloc(sizeof(Deplacement),0);
+  listDeplacement.p_Deplacement = calloc(0,sizeof(Deplacement));
   listDeplacement.tailleListe = 0;
   return listDeplacement;
 }
@@ -39,7 +39,7 @@ ListDeplacement construct_ListDeplacement()
 void ListDeplacement_ajouterDeplacement(ListDeplacement * listDeplacement, Deplacement deplacement)
 {
   listDeplacement->tailleListe ++;
-  listDeplacement->p_Deplacement = realloc(listDeplacement->p_Deplacement,sizeof(Deplacement) * listDeplacement->tailleListe);
+  listDeplacement->p_Deplacement = realloc(listDeplacement->p_Deplacement,listDeplacement->tailleListe * sizeof(Deplacement));
   listDeplacement->p_Deplacement[listDeplacement->tailleListe - 1] = deplacement;
 }
 

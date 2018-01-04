@@ -22,5 +22,7 @@ int run();
 void ShingShang_nouvellePartie(ShingShang * shingShang);
 ShingShang ShingShang_chargerPartie();
 void ShingShang_sauvegarderPartie(ShingShang partie);
+Pion * ShingShang_selectionnerPion(ShingShang shingShang);
+Deplacement * ShingShang_selectionnerDeplacement(ListDeplacement listDeplacement);
 
 #endif
