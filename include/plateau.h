@@ -26,4 +26,5 @@ int Plateau_testRegleDeplacementDouble(Plateau plateau,TypePion typePion, int co
 int Plateau_testRegleSaut(Plateau plateau,TypePion typePion, int coordXCaseObstacle, int coordYCaseObstacle, int coordXCible, int coordYCible);
 
 ListDeplacement Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelectionner);
+void Plateau_deplacerPion(Plateau * plateau, Pion * pion, Deplacement deplacement, Joueur * joueurAdverse);
 #endif
