@@ -1,5 +1,7 @@
 #include <pion.h>
 
+
+
 Pion construct_Pion(int numeroJoueur,TypePion typePion, int x, int y)
 {
   Pion pion;

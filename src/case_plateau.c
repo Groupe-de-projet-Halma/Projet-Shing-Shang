@@ -7,5 +7,6 @@ CasePlateau construct_CasePlateau(int x, int y)
   casePlateau.y = y;
   casePlateau.p_pionCase = NULL;
   casePlateau.typeDeCase = NORMAL;
+
   return casePlateau;
 }

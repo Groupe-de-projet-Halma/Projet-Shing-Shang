@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 void clear_console(); // Vide la console
 void vider_buffer();  // Vide le buffer pour le scanf
 

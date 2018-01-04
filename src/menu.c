@@ -8,7 +8,7 @@
 
 void afficher_menu(){
   clear_console();
-  couleur("31");//titre
+  couleur("31");//titre (couleur : rouge)
   printf("   _____ _    _ _____ _   _  _____    _____ _    _          _   _  _____ \n");
   printf("  / ____| |  | |_   _| \\ | |/ ____|  / ____| |  | |   /\\   | \\ | |/ ____|\n");
   printf(" | (___ | |__| | | | |  \\| | |  __  | (___ | |__| |  /  \\  |  \\| | |  __ \n");
@@ -19,7 +19,7 @@ void afficher_menu(){
 
   printf("\n\n");
 
-  couleur("37");
+  couleur("37");//couleur : argent
   printf(" 1 - Nouvelle partie\n");
   printf(" 2 - Charger une partie\n");
   printf(" 3 - Règles\n");

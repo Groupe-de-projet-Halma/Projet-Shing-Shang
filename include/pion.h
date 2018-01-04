@@ -4,11 +4,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 typedef enum TypePion TypePion;
 enum TypePion
 {
     AUCUN, SINGE, LION, DRAGON
 };
+
+
 
 typedef struct
 {

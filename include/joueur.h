@@ -4,12 +4,16 @@
 
 #include <pion.h>
 
+#include <utilitaire.h>
+
+
 typedef struct
 {
   int numero;  // Represente le numero de joueur
   char nom[100]; // Represente le nom du joueur
   Pion tab_p_pion[NB_PION]; // Represente les pions du joueur
 }Joueur;
+
 
 Joueur construct_Joueur(int numero);
 

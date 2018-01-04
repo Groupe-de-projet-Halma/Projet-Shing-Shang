@@ -1,4 +1,7 @@
 #include <plateau.h>
+#include <joueur.h>
+
+#define couleur(param) printf("\033[%sm", param)
 
 Plateau construct_Plateau()
 {
@@ -56,9 +59,29 @@ void Plateau_afficher(Plateau plateau)
       {
         if (plateau.t_casesPlateau[x][y].p_pionCase == NULL)
           printf(" 0 ");
-        else
-          printf(" %d ", plateau.t_casesPlateau[x][y].p_pionCase->typePion);
+        else {
+      //    if(){
+            couleur("34");
+            if(plateau.t_casesPlateau[x][y].p_pionCase->typePion == 3)
+              printf(" D ");
+            else if(plateau.t_casesPlateau[x][y].p_pionCase->typePion == 2)
+              printf(" L ");
+            else if(plateau.t_casesPlateau[x][y].p_pionCase->typePion == 1)
+              printf(" S ");
+      /*    }else if(shingShang.joueur1->numero == 2){
+            couleur("31");
+            if(plateau.t_casesPlateau[x][y].p_pionCase->typePion == 3)
+              printf(" D ");
+            else if(plateau.t_casesPlateau[x][y].p_pionCase->typePion == 2)
+              printf(" L ");
+            else if(plateau.t_casesPlateau[x][y].p_pionCase->typePion == 1)
+              printf(" S ");
+
+          }*/
+          couleur("0");
+        }
       }
+
       else if (plateau.t_casesPlateau[x][y].typeDeCase == PORTE_J1)
         printf(" X ");
       else if (plateau.t_casesPlateau[x][y].typeDeCase == PORTE_J2)
@@ -68,6 +91,8 @@ void Plateau_afficher(Plateau plateau)
     printf("\n");
   }
 }
+
+
 
 void Plateau_creerPion(Plateau * plateau, Joueur * joueur)
 {
