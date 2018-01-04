@@ -394,25 +394,27 @@ int test_dragon(Joueur * joueur)
 }
 
 /*Conditions de victoire*/
-void victoire(Joueur * joueur, Plateau * plateau ){
+int victoire(Joueur * joueur, Plateau * plateau ){
+  int vainqueur = 0;
   if(test_dragon( joueur) == 0){
     //le joueur adverse gagne
   }else{
     if(joueur->numero == 1){
       if(plateau->t_casesPlateau[4][TAILLE_PLATEAU-2].p_pionCase->typePion == DRAGON && plateau->t_casesPlateau[4][TAILLE_PLATEAU-2].p_pionCase->numeroJoueur == joueur -> numero){
-        //victoire j1
+        vainqueur = 1;
       }
       if(plateau->t_casesPlateau[5][TAILLE_PLATEAU-2].p_pionCase->typePion == DRAGON && plateau->t_casesPlateau[5][TAILLE_PLATEAU-2].p_pionCase->numeroJoueur == joueur -> numero){
-        //victoire j1
+        vainqueur = 1;
       }
 
     }else {
       if(plateau->t_casesPlateau[4][1].p_pionCase->typePion == DRAGON && plateau->t_casesPlateau[4][1].p_pionCase->numeroJoueur == joueur -> numero) {
-        //victoire j2
+        vainqueur = 2;
       }
       if(plateau->t_casesPlateau[5][1].p_pionCase->typePion == DRAGON && plateau->t_casesPlateau[5][1].p_pionCase->numeroJoueur == joueur -> numero){
-      //victoire j2
+        vainqueur = 2;
       }
     }
   }
+  return vainqueur;
 }

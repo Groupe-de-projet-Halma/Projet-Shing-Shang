@@ -28,3 +28,7 @@ int Plateau_testRegleSaut(Plateau plateau,TypePion typePion, int coordXCaseObsta
 ListDeplacement Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelectionner);
 void Plateau_deplacerPion(Plateau * plateau, Pion * pion, Deplacement deplacement, Joueur * joueurAdverse);
 #endif
+
+
+int test_dragon(Joueur * joueur);
+int victoire(Joueur * joueur, Plateau * plateau );

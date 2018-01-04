@@ -7,6 +7,7 @@
 #include <utilitaire.h>
 #include <plateau.h>
 #include <joueur.h>
+#include <menu.h>
 
 typedef struct
 {
@@ -22,5 +23,7 @@ int run();
 void ShingShang_nouvellePartie(ShingShang * shingShang);
 ShingShang ShingShang_chargerPartie();
 void ShingShang_sauvegarderPartie(ShingShang partie);
+
+void message_victoire(ShingShang * shingShang, int vainqueur);
 
 #endif

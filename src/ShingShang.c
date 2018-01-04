@@ -66,6 +66,29 @@ Pion * ShingShang_selectionnerPion(ShingShang shingShang)
   return pionSelectionner;
 }
 
+
+
+void message_victoire(ShingShang * shingShang, int vainqueur){
+  clear_console();
+  int choix;
+  printf("Résultat de la partie : \n");
+  if(vainqueur == 0)
+    printf("    Aucun gagnant\n\n");
+  if(vainqueur == 1)
+    printf("    Victoire de %s\n\n", shingShang->joueur1.nom);
+  if(vainqueur == 2)
+    printf("    Victoire de %s\n\n", shingShang->joueur2.nom);
+
+  do { //test pour retourner au menu
+    scanf("%d",&choix);
+  if(choix != 1)
+    printf("Erreur, veuillez rééssayer : ");
+  } while(choix != 1);
+  if(choix == 1){
+    menu();
+  }
+}
+
 int run()
 {
   /* Provisoire */
@@ -85,9 +108,6 @@ int run()
   Pion_affichage(*pion);
 
   ListDeplacement listDeplacement = Plateau_rechercheDeplacement(shingShang.plateau,*pion);
-  printf("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
-  for (int i = 0; i < listDeplacement.tailleListe; i++) {
-    Deplacement_affichage(ListDeplacement_getIndexDeplacement(listDeplacement,i));
-  }
+
   return 0;
 }

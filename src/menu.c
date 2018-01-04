@@ -42,9 +42,9 @@ void menu(){
   if(choix == 1){
     nouvellePartie();
   }
-
-
-
+  if(choix == 2){
+    chargerPartie();
+  }
   if(choix == 3){
     regles1();
   }
@@ -74,7 +74,7 @@ void regles1() // Affiche les règles du jeu
   couleur("37");
   printf("Le Shing Shang est un jeu de stratégie qui se joue sur un damier de 84 cellules avec 2 ∗ 12 pièces (Bushis).\n\n");
   printf("Préparation :\n");
-  printf("Chaque joueur possède une armée de 12 Bushis en une couleur (rouge ou noir).\nCette armée est composée de 3 groupes de Bushis : 2 Dragons, 4 Lions et 6 Singes. \n\n");
+  printf("Chaque joueur possède une armée de 12 Bushis en une couleur (bleu ou rouge).\nCette armée est composée de 3 groupes de Bushis : 2 Dragons, 4 Lions et 6 Singes. \n\n");
 
   printf("Taper 1 pour revenir au menu.\nTaper 3 pour aller à la page suivante.\n\nVotre choix : "); //permet de revenir au menu
   do {
