@@ -12,6 +12,7 @@ typedef struct
   int numero;  // Represente le numero de joueur
   char nom[100]; // Represente le nom du joueur
   Pion tab_p_pion[NB_PION]; // Represente les pions du joueur
+  int nbrDragon; // Represente le nombre de dragon restant
 }Joueur;
 
 

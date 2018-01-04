@@ -352,6 +352,30 @@ ListDeplacement Plateau_rechercheDeplacement(Plateau plateau, Pion pionSelection
   return listDeplacement;
 }
 
+void Plateau_deplacerPion(Plateau * plateau, Pion * pion, Deplacement deplacement, Joueur * joueurAdverse)
+{
+  int x_initial = pion->x;
+  int y_initial = pion->y;
+  int x_deplacement = deplacement.caseDestination->x;
+  int y_deplacement = deplacement.caseDestination->y;
+
+  plateau->t_casesPlateau[x_initial][y_initial].p_pionCase = NULL;
+  pion->x = x_deplacement;
+  pion->y = y_deplacement;
+  plateau->t_casesPlateau[x_deplacement][y_deplacement].p_pionCase = pion;
+
+  if(deplacement.pionEliminer != NULL)
+  {
+    int x_eliminer = deplacement.pionEliminer->x;
+    int y_eliminer = deplacement.pionEliminer->y;
+    if (deplacement.pionEliminer->typePion == DRAGON)
+    {
+      joueurAdverse->nbrDragon--;
+    }
+    plateau->t_casesPlateau[x_eliminer][y_eliminer].p_pionCase = NULL;
+  }
+}
+
 /*test si le joueur a encore des dragons*/
 int test_dragon(Joueur * joueur)
 {
