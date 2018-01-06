@@ -21,10 +21,9 @@ void afficher_menu(){
 
   couleur("37");//couleur : argent
   printf(" 1 - Nouvelle partie\n");
-  printf(" 2 - Charger une partie\n");
-  printf(" 3 - Règles\n");
-  printf(" 4 - Crédits\n");
-  printf(" 5 - Quitter\n");
+  printf(" 2 - Règles\n");
+  printf(" 3 - Crédits\n");
+  printf(" 4 - Quitter\n");
   printf("\n");
 }
 
@@ -41,9 +40,6 @@ void menu(){
 
   if(choix == 1){
     nouvellePartie();
-  }
-  if(choix == 2){
-    //chargerPartie();
   }
   if(choix == 3){
     regles1();

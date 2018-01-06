@@ -76,8 +76,8 @@ void Plateau_afficher(Plateau plateau)
               printf(" L ");
             else if(plateau.t_casesPlateau[x][y].p_pionCase->typePion == 1)
               printf(" S ");
-          }
-          couleur("0");
+            else if()
+              couleur("35");
         }
       }
 
