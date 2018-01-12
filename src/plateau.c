@@ -76,12 +76,10 @@ void Plateau_afficher(Plateau plateau)
               printf(" L ");
             else if(plateau.t_casesPlateau[x][y].p_pionCase->typePion == 1)
               printf(" S ");
-            else if()
-              couleur("35");
+          }
+          couleur("0");
         }
-      }
-
-      else if (plateau.t_casesPlateau[x][y].typeDeCase == PORTE_J1){
+      }else if (plateau.t_casesPlateau[x][y].typeDeCase == PORTE_J1){
         couleur("32");
         printf(" X ");
         couleur("0");

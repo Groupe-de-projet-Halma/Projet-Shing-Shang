@@ -41,13 +41,13 @@ void menu(){
   if(choix == 1){
     nouvellePartie();
   }
-  if(choix == 3){
+  if(choix == 2){
     regles1();
   }
-  if(choix == 4){
+  if(choix == 3){
     credits();
   }
-  if(choix == 5){
+  if(choix == 4){
     clear_console();
   }
 }
